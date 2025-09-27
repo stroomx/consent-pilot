@@ -38,10 +38,12 @@ class Settings {
 	 */
 	public static $options;
 
-	/**
-	 * Initialize defaults and load saved options.
-	 */
-	public static function init(): void {
+        /**
+         * Initialize defaults and load saved options.
+         *
+         * @return void
+         */
+        public static function init() {
 		self::$default['consent_notice'] = __( 'We use cookies to enhance your experience, analyze traffic, and personalize content. You can accept all cookies, reject non-essential ones, or manage preferences.', 'consent-pilot' );
 
 		// Load saved options or fall back to defaults.
@@ -51,18 +53,22 @@ class Settings {
 		}
 	}
 
-	/**
-	 * Register WP hooks.
-	 */
-	public function register_hooks(): void {
+        /**
+         * Register WP hooks.
+         *
+         * @return void
+         */
+        public function register_hooks() {
 		self::init();
 		add_action( 'admin_init', array( $this, 'register' ) );
 	}
 
-	/**
-	 * Register settings, sections, and fields.
-	 */
-	public function register(): void {
+        /**
+         * Register settings, sections, and fields.
+         *
+         * @return void
+         */
+        public function register() {
 
 		register_setting(
 			CONSENTPILOT_PREFIX,	 // Option group.
@@ -84,7 +90,10 @@ class Settings {
 		add_settings_field(
 			'consentpilot_gtm',
 			__( 'GTM container ID', 'consent-pilot' ),
-			function (): void {
+                        /**
+                         * @return void
+                         */
+                        function () {
 				?>
 				<input
 					type="text"
@@ -104,7 +113,10 @@ class Settings {
 		add_settings_field(
 			'consentpilot_log_ip',
 			__( 'Log settings', 'consent-pilot' ),
-			function (): void {
+                        /**
+                         * @return void
+                         */
+                        function () {
 				$checked = (int) ( self::$options['log_ip'] ?? 0 );
 				?>
 				<label for="consentpilot_log_ip">
@@ -125,7 +137,10 @@ class Settings {
 		add_settings_field(
 			'consentpilot_consent_notice',
 			__( 'Consent notice text', 'consent-pilot' ),
-			function (): void {
+                        /**
+                         * @return void
+                         */
+                        function () {
 				$val = (string) ( self::$options['consent_notice'] ?? self::$default['consent_notice'] );
 				?>
 				<textarea
@@ -141,7 +156,10 @@ class Settings {
 		add_settings_field(
 			'consentpilot_consent_validity',
 			__( 'Consent validity', 'consent-pilot' ),
-			function (): void {
+                        /**
+                         * @return void
+                         */
+                        function () {
 				?>
 				<input
 					type="number"
@@ -164,7 +182,10 @@ class Settings {
 		add_settings_field(
 			'consentpilot_enable_darkmode',
 			__( 'Dark mode settings', 'consent-pilot' ),
-			function (): void {
+                        /**
+                         * @return void
+                         */
+                        function () {
 				$checked = (int) ( self::$options['enable_darkmode'] ?? 0 );
 				?>
 				<label for="consentpilot_enable_darkmode">
@@ -185,7 +206,10 @@ class Settings {
 		add_settings_field(
 			'consentpilot_color_accent',
 			__( 'Accent color', 'consent-pilot' ),
-			function (): void {
+                        /**
+                         * @return void
+                         */
+                        function () {
 				$val     = (string) ( self::$options['color_accent'] ?? self::$default['color_accent'] );
 				$default = (string) self::$default['color_accent'];
 				?>
@@ -204,7 +228,10 @@ class Settings {
 		add_settings_field(
 			'consentpilot_color_url',
 			__( 'Link color', 'consent-pilot' ),
-			function (): void {
+                        /**
+                         * @return void
+                         */
+                        function () {
 				$val     = (string) ( self::$options['color_url'] ?? self::$default['color_url'] );
 				$default = (string) self::$default['color_url'];
 				?>

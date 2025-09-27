@@ -18,20 +18,23 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Assets {
 
-	/**
-	 * Register WordPress hooks.
-	 */
-	public function register_hooks(): void {
+       /**
+        * Register WordPress hooks.
+        *
+        * @return void
+        */
+       public function register_hooks() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_assets' ), 10 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'public_assets' ) );
 	}
 
-	/**
-	 * Enqueue admin assets for the plugin settings screen.
-	 *
-	 * @param string $hook_suffix Current admin page hook suffix.
-	 */
-	public function admin_assets( string $hook_suffix ): void {
+       /**
+        * Enqueue admin assets for the plugin settings screen.
+        *
+        * @param string $hook_suffix Current admin page hook suffix.
+        * @return void
+        */
+       public function admin_assets( string $hook_suffix ) {
 		if ( 'toplevel_page_consent-pilot' !== $hook_suffix ) {
 			return;
 		}
@@ -53,10 +56,12 @@ class Assets {
 		);
 	}
 
-	/**
-	 * Enqueue public assets and inject dynamic styles and data.
-	 */
-	public function public_assets(): void {
+       /**
+        * Enqueue public assets and inject dynamic styles and data.
+        *
+        * @return void
+        */
+       public function public_assets() {
 		$custom_css = '
 		.consentpilot {
 			--accent: ' . esc_html( Settings::$options['color_accent'] ) . ';
