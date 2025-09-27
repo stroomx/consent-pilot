@@ -23,7 +23,7 @@ class Shortcodes {
 	 *
 	 * @return void
 	 */
-	public function register_hooks(): void {
+        public function register_hooks() {
 		add_shortcode( 'consentpilot-preferences', array( $this, 'render' ) );
 	}
 

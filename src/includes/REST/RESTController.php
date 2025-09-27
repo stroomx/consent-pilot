@@ -26,7 +26,7 @@ class RESTController {
 	 *
 	 * @return void
 	 */
-	public function register_hooks(): void {
+        public function register_hooks() {
 		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
 	}
 
@@ -35,7 +35,7 @@ class RESTController {
 	 *
 	 * @return void
 	 */
-	public function register_routes(): void {
+        public function register_routes() {
 		register_rest_route(
 			'consent-pilot/v1',
 			'consent',

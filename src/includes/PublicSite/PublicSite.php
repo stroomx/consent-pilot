@@ -25,7 +25,7 @@ class PublicSite {
 	 *
 	 * @return void
 	 */
-	public function register_hooks(): void {
+        public function register_hooks() {
 		// Add public-facing hooks as needed.
 		if ( ! is_admin() ) {
 			add_action( 'wp_footer', array( $this, 'consent_notice' ) );
@@ -37,7 +37,7 @@ class PublicSite {
 	 *
 	 * @return void
 	 */
-	public function consent_notice(): void {
+        public function consent_notice() {
 		$privacy_policy = get_privacy_policy_url();
 		?>
 		<!-- ===== Banner ===== -->
