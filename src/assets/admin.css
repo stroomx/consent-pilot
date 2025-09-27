@@ -1,0 +1,106 @@
+/* Admin styles */
+#wpcontent {
+	padding-left: 0 !important;
+}
+
+.consentpilot-header {
+	text-align: center;
+	margin: 0 0 1rem;
+	background: #fff;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.consentpilot-header-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	clear: both;
+	padding-top: 8px;
+}
+
+.consentpilot-header-title h1 {
+	display: inline-block;
+	font-weight: 600;
+	margin: 0 .8rem 1rem;
+	font-size: 23px;
+	padding: 9px 0 4px;
+	line-height: 1.3;
+}
+
+.consentpilot-tabs-wrapper {
+	display: -ms-inline-grid;
+	-ms-grid-columns: 1fr 1fr 1fr 1fr;
+	vertical-align: top;
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.consentpilot-tab {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	padding: .5rem 1rem 1rem;
+	margin: 0 1rem;
+	transition: box-shadow .5s ease-in-out;
+}
+
+.consentpilot-tab.active {
+	box-shadow: inset 0 -3px #3582c4;
+	font-weight: 600;
+}
+
+.consentpilot-body {
+	max-width: 800px;
+	width: auto;
+	margin: 0 auto;
+	padding-left: 22px;
+	padding-right: 22px;
+}
+
+.wrap {
+	margin-left: 20px;
+}
+
+.consentpilot-accordion {
+	border: 1px solid #c3c4c7;
+	background: #fff;
+}
+
+.consentpilot-accordion details:not(:last-child) {
+	border-bottom: 1px solid #c3c4c7;
+}
+
+.consentpilot-accordion summary,
+.consentpilot-accordion div {
+	padding: 1em 1.5em;
+}
+
+.consentpilot-accordion summary:active,
+.consentpilot-accordion summary:hover {
+	background: #f6f7f7;
+	cursor: pointer;
+}
+
+.consentpilot-accordion summary:focus {
+	outline-offset: -1px;
+	outline: 2px solid #2271b1;
+}
+
+.consentpilot-accordion h4 {
+	margin: 0;
+	width: auto;
+}
+
+.consentpilot-chevron {
+	float: inline-end;
+}
+
+.consentpilot-accordion details[open] .consentpilot-chevron {
+	transform: rotate(180deg);
+}
+
+.consentpilot-accordion summary::-webkit-details-marker,
+.consentpilot-accordion summary::marker {
+	display: none;
+	content: '';
+}
