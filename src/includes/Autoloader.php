@@ -33,7 +33,7 @@ final class Autoloader {
 	 * @return void
 	 */
 	public static function register( $prefix, $base_dir ) {
-		self::$prefix   = rtrim( $prefix, '\\' ) . '\\';
+		self::$prefix = rtrim( $prefix, '\\' ) . '\\';
 		self::$base_dir = rtrim( $base_dir, DIRECTORY_SEPARATOR ) . DIRECTORY_SEPARATOR;
 
 		spl_autoload_register( array( __CLASS__, 'autoload' ) );
@@ -51,9 +51,9 @@ final class Autoloader {
 			return;
 		}
 
-		$relative		= substr( $class, strlen( self::$prefix ) );
-		$relative_path	= str_replace( '\\', DIRECTORY_SEPARATOR, $relative ) . '.php';
-		$file			= self::$base_dir . $relative_path;
+		$relative = substr( $class, strlen( self::$prefix ) );
+		$relative_path = str_replace( '\\', DIRECTORY_SEPARATOR, $relative ) . '.php';
+		$file = self::$base_dir . $relative_path;
 
 		if ( is_readable( $file ) ) {
 			require_once $file;
